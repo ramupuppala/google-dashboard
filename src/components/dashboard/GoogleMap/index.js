@@ -44,8 +44,6 @@ export class GoogleMap extends React.Component {
 
 
   getClusters = () => {
-    console.log('sate.data::', this.state.data);
-
     const clusters = supercluster(this.state.data, {
       minZoom: 0,
       maxZoom: 16,
@@ -56,7 +54,6 @@ export class GoogleMap extends React.Component {
   };
 
   createClusters = props => {
-    console.log(props)
     this.setState({
       clusters: this.state.mapOptions.bounds
         ? this.getClusters(props).map(({ wx, wy, numPoints, points }) => ({
@@ -67,7 +64,7 @@ export class GoogleMap extends React.Component {
           points,
         }))
         : [],
-    }, console.log(this.state.clusters));
+    },);
   };
 
   handleMapChange = ({ center, zoom, bounds }) => {
@@ -111,7 +108,7 @@ export class GoogleMap extends React.Component {
       data: tempData,
       userDetails: data,
       isExcelReader: true
-    }, console.log(this.state.data));
+    },);
 
   }
 
